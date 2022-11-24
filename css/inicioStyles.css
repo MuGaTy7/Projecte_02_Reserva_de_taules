@@ -1,0 +1,561 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+body {
+    background-color: #17180f;
+    font-family: 'Poppins', sans-serif!important;
+}
+
+
+/* SCROLLBBAR */
+
+::-webkit-scrollbar {
+    height: 8px;
+    width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(71, 71, 71, 0.704);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(71, 71, 71, 0.259);
+}
+
+::-webkit-scrollbar-thumb:active {
+    background-color: rgba(10, 10, 10, 0.259);
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+}
+
+.region-navbar {
+    position: relative;
+    width: 100%;
+    padding: 30px;
+    height: 150px;
+}
+
+.region-navbar .widget-navbar {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: rgba(71, 71, 71, 0.259);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, .6);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    padding: 25px;
+}
+
+.region-navbar .widget-navbar ul {
+    position: relative;
+    display: flex;
+    width: 100%;
+}
+
+.region-navbar .widget-navbar ul li {
+    position: relative;
+    justify-content: flex-start;
+    margin: 0px 10px;
+}
+
+.region-navbar .widget-navbar .justify-end {
+    margin-left: auto;
+}
+
+.region-navbar .widget-navbar ul li {
+    background-color: #17180f;
+    border-radius: 10px;
+    padding: 7px 13px;
+    display: flex;
+    align-items: center;
+}
+
+.region-navbar .widget-navbar ul li a {
+    color: white;
+    font-size: 15px;
+    text-decoration: none;
+    font-weight: 600;
+    position: relative;
+}
+
+
+/* REGION MAPA RESTAURANTE */
+
+
+/* CLASES GLOBALES */
+
+.region-rest {
+    position: relative;
+    width: 100%;
+    padding: 40px;
+    height: calc(100vh - 150px);
+}
+
+
+/* FONDO DE LAS TABLAS */
+
+.region-rest .widget-rest {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: rgba(71, 71, 71, 0.259);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, .6);
+    border-radius: 20px;
+    padding: 30px;
+    display: flex;
+    overflow-x: auto;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.mesa-rest {
+    position: relative;
+    height: 200px;
+    width: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    border-radius: 20px;
+    background-color: #e7e7e7;
+}
+
+.div-12 {
+    width: 320px;
+}
+.div-10{
+    width: 290px;
+}
+
+.mesa-rest .ocu-2 {
+    width: 55%;
+    height: 100%;
+}
+.mesa-rest .ocu-4 {
+    width: 85%;
+    height: 100%;
+}
+.mesa-rest .ocu-6 {
+    width: 100%;
+    height: 85%;
+}
+.mesa-rest .ocu-10 {
+    width: 100%;
+    height: 90%;
+}
+.mesa-rest .ocu-12 {
+    width: 100%;
+    height: 90%;
+}
+
+
+/* ESTRUCTURA TABLA */
+
+.region-rest .widget-rest table {
+    position: relative;
+    min-width: 100%;
+    padding: 30px;
+}
+
+
+/* CENTRAR EN LOS TD */
+
+.region-rest .widget-rest .cont {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* CLASES SALON */
+
+.region-rest #salon tr,
+.region-rest #salon td {
+    position: relative;
+    color: white;
+    height: 11.1%;
+    width: 7.14%;
+}
+
+.region-rest #salon .cont button {
+    width: 100%;
+    height: 43px;
+    border-radius: 10px;
+}
+
+.region-rest #salon i {
+    font-size: 25px;
+}
+
+
+/* CLASES TERRAZA */
+
+.region-rest #terraza tr,
+.region-rest #terraza td {
+    position: relative;
+    color: white;
+    height: 11.10%;
+    width: 9.09%;
+}
+
+.region-rest #terraza .cont button {
+    width: 100%;
+    height: 43px;
+    border-radius: 10px;
+}
+
+.region-rest #terraza i {
+    font-size: 25px;
+}
+
+
+/* CLASES SALA PRIVADA 1 */
+
+.region-rest #sala-privada-1 tr,
+.region-rest #sala-privada-1 td {
+    position: relative;
+    color: white;
+    height: 11.10%;
+    width: 9.09%;
+}
+
+.region-rest #sala-privada-1 .cont {
+    width: 100%;
+    height: 43px;
+    border-radius: 10px;
+}
+
+.region-rest #sala-privada-1 i {
+    font-size: 25px;
+}
+
+.mesasLargas {
+    width: 100%;
+    height: 258px;
+    border-radius: 10px;
+}
+
+
+/* CLASES SALA PRIVADA 2 */
+
+.region-rest #sala-privada-2 tr,
+.region-rest #sala-privada-2 td {
+    position: relative;
+    color: white;
+    height: 11.10%;
+    width: 9.09%;
+}
+
+.region-rest #sala-privada-2 .cont button {
+    width: 100%;
+    height: 43px;
+    border-radius: 10px;
+}
+
+.region-rest #sala-privada-2 i {
+    font-size: 25px;
+}
+
+
+/* ROTACION PARA SILLAS */
+
+.rotar180 {
+    transform: rotate(180deg);
+}
+
+.rotar90 {
+    transform: rotate(90deg);
+}
+
+.rotar270 {
+    transform: rotate(270deg);
+}
+
+/* MODAL */
+
+.button_modal {
+    background-color: transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+}
+
+.page-wrapper {
+    width: 100%;
+    height: 100%;
+}
+
+.blur-it {
+    filter: blur(4px);
+}
+
+a.btn {
+    width: 200px;
+    padding: 18px 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-weight: 700;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #fff;
+    border-radius: 0;
+    background: #17180f;
+}
+
+.modal-wrapper {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(34, 34, 34, 0.849);
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.25s ease-in-out;
+}
+
+.modal-wrapper.open {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal {
+    width: 600px;
+    height: 500px;
+    display: block;
+    margin: 50% 0 0 -300px;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    background: #e7e7e7;
+    opacity: 0;
+    transition: all 0.5s ease-in-out;
+    border-radius: 20px;
+    font-family: 'Poppins', sans-serif!important;
+}
+
+.modal-wrapper.open .modal {
+    margin-top: -250px;
+    opacity: 1;
+}
+
+.head {
+    width: 100%;
+    height: 50px;
+    padding: 12px 30px;
+    overflow: hidden;
+    background: #e7e7e7;
+    border-radius: 20px;
+}
+
+.btn-close {
+    font-size: 28px;
+    display: block;
+    float: right;
+    color: #17180f;
+}
+
+.content {
+    padding: 2% 10%;
+}
+
+.good-job {
+    text-align: center;
+    font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+    color: #17180f;
+}
+
+.good-job .fa-thumbs-o-up {
+    font-size: 60px;
+}
+
+.good-job h1 {
+    font-size: 45px;
+    position: relative;
+    margin-top: -38px;
+}
+
+.selecion-modal{
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.selecion-modal button {
+    padding: 10px;
+    background-color: rgba(128, 128, 128, 0.674);
+    color: white;
+    border-radius: 5px;
+}
+
+.selecion-modal button:hover{
+    background-color: gray;
+}
+
+#form1 {
+    margin-top: 35px;
+}
+
+
+/* INPUTS */
+
+.login-box .user-box {
+    position: relative;
+}
+
+.login-box .user-box input {
+    width: 50%;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #17180f;
+    margin-bottom: 30px;
+    border: none;
+    border-bottom: 1px solid #17180f;
+    outline: none;
+    background: transparent;
+}
+
+.login-box .user-box label {
+    width: 62%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #17180f;
+    pointer-events: none;
+    transition: .5s;
+}
+
+.login-box .user-box input:focus~label,
+.login-box .user-box input:valid~label {
+    top: -20px;
+    left: -7px;
+    color: #17180f;
+    font-size: 12px;
+}
+
+
+/* BOTON RESERVAR */
+
+.login-box form .btnReservar {
+    position: relative;
+    display: inline-block;
+    padding: 10px 20px;
+    color: #17180f;
+    font-size: 16px;
+    text-decoration: none;
+    text-transform: uppercase;
+    overflow: hidden;
+    transition: .5s;
+    letter-spacing: 4px
+}
+
+.login-box .btnReservar:hover {
+    background: red;
+    color: #17180f;
+    border-radius: 5px;
+    box-shadow: 0 0 5px red, 0 0 25px red, 0 0 50px red, 0 0 100px red;
+}
+
+.login-box .btnReservar span {
+    position: absolute;
+    display: block;
+}
+
+
+/* BOTON LIBERAR */
+
+.login-box form .btnLiberar {
+    position: relative;
+    display: inline-block;
+    padding: 10px 20px;
+    color: #17180f;
+    font-size: 16px;
+    text-decoration: none;
+    text-transform: uppercase;
+    overflow: hidden;
+    transition: .5s;
+    margin-top: 30px;
+    letter-spacing: 4px
+}
+
+.login-box .btnLiberar:hover {
+    background: rgb(41, 177, 0);
+    color: #17180f;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgb(41, 177, 0), 0 0 25px rgb(41, 177, 0), 0 0 50px rgb(41, 177, 0), 0 0 100px rgb(41, 177, 0);
+}
+
+.login-box .btnLiberar span {
+    position: absolute;
+    display: block;
+}
+
+
+/* BOTON AVERIADO */
+
+.login-box form .btnAveriado {
+    position: relative;
+    display: inline-block;
+    padding: 10px 20px;
+    color: #17180f;
+    font-size: 16px;
+    text-decoration: none;
+    text-transform: uppercase;
+    overflow: hidden;
+    transition: .5s;
+    margin-top: 30px;
+    letter-spacing: 4px
+}
+
+.login-box .btnAveriado:hover {
+    background: rgb(255, 238, 0);
+    color: #17180f;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgb(255, 238, 0), 0 0 25px rgb(255, 238, 0), 0 0 50px rgb(255, 238, 0), 0 0 100px rgb(255, 238, 0);
+}
+
+.login-box .btnAveriado span {
+    position: absolute;
+    display: block;
+}
+
+
+/*Colores mesa*/
+
+.Ocupado {
+    background-color: red;
+}
+
+.Averiado {
+    background-color: Yellow;
+}
+
+
+/* CENTRAR DIV */
+
+.centrar-BTN-mesas {
+    padding: 200px;
+    justify-content: center;
+}
+
+.padding-DENTRO-btn {
+    padding: 10px;
+}
+
+.separacion-BTN {
+    padding: 15px;
+}

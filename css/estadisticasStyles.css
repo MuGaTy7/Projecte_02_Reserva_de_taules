@@ -1,0 +1,198 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+body {
+    background-color: #17180f;
+    font-family: 'Poppins', sans-serif;
+}
+
+p {
+    margin: 0;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+}
+
+
+/* SCROLLBBAR */
+
+::-webkit-scrollbar {
+    height: 8px;
+    width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #474747b4;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(71, 71, 71, 0.259);
+}
+
+::-webkit-scrollbar-thumb:active {
+    background-color: rgba(10, 10, 10, 0.259);
+}
+
+.region-navbar {
+    position: relative;
+    width: 100%;
+    padding: 30px;
+    height: 150px;
+}
+
+.region-navbar .widget-navbar {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: rgba(71, 71, 71, 0.259);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, .6);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    padding: 25px;
+}
+
+.region-navbar .widget-navbar ul {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin: 0;
+}
+
+.region-navbar .widget-navbar ul li {
+    position: relative;
+    justify-content: center;
+    margin: 0px 10px;
+}
+
+.justify-end {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+}
+
+.justify-start {
+    margin-right: auto;
+    display: flex;
+    align-items: center;
+}
+
+.region-navbar .widget-navbar ul li {
+    background-color: #17180f;
+    border-radius: 10px;
+    padding: 7px 13px;
+    display: flex;
+    align-items: center;
+}
+
+.region-navbar .widget-navbar ul li a {
+    color: white;
+    font-size: 15px;
+    text-decoration: none;
+    font-weight: 600;
+    position: relative;
+}
+
+
+/* REGION MAPA RESTAURANTE */
+
+
+/* CLASES GLOBALES */
+
+.region-rest {
+    position: relative;
+    width: 100%;
+    padding: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 150px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* FONDO DE LAS TABLAS */
+
+.region-rest .widget-rest {
+    position: relative;
+    width: 80%;
+    height: 100%;
+    background: rgba(71, 71, 71, 0.259);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, .6);
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 34px;
+    overflow-x: auto;
+}
+
+@media (max-width: 1120px) {
+    .region-rest .widget-rest table {
+        min-width: 960px!important;
+    }
+}
+
+.region-rest .widget-rest .container {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+
+/* ESTRUCTURA TABLA */
+
+.region-rest .widget-rest .container table {
+    position: relative;
+    width: 100%;
+    padding: 30px;
+    margin-bottom: 0;
+    --bs-table-bg: #e32424;
+    --bs-table-striped-bg: #ffffff;
+    --bs-table-striped-color: rgb(208, 10, 10);
+    --bs-table-active-bg: #bad726;
+    --bs-table-active-color: rgb(250, 246, 251);
+    --bs-table-hover-color: rgb(255, 255, 255);
+    color: #a4a4a4;
+    border-color: #373b3e;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: rgb(255 255 255 / 5%);
+}
+
+.table-hover tbody tr:hover {
+    color: white;
+}
+
+.mostrar_filtros {
+    display: flex!important;
+}
+
+.filter {
+    background-color: transparent;
+    border-color: transparent;
+}
+
+.filter:focus {
+    color: #495057;
+    background-color: transparent;
+    border: none;
+    outline: 0;
+    box-shadow: 0 0 0 .2rem rgba(255, 32, 32, 0.25);
+}
+
+.enviar {
+    background-color: transparent;
+    color: white;
+    border-radius: 5px;
+    font-weight: 600;
+    border: none;
+}
