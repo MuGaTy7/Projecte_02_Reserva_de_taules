@@ -23,7 +23,7 @@ function login($username, $password) {
             $_SESSION['id_user'] = $user['id_user'];
 
         }
-        echo "<script>location.href = '../view/inicio.php';</script>";
+        echo "<script>location.href = '../view/beforeInicio.php';</script>";
     } else {
         
         // Sentencia para ver si ese usuario que nos han introducido es un técnico de mantenimiento

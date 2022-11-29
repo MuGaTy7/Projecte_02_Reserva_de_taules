@@ -22,6 +22,7 @@
     <!-- JQUERY -->
     <script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="../js/ajax.js"></script>
 </head>
 
 <body>
@@ -43,13 +44,6 @@
                 <li class="justify-end"><a href="../functions/cerrarSesion.php"><i
                             class="fa-solid fa-right-from-bracket"></i></a></li>
             </ul>
-            <!-- <div id="nav-container">
-                <div class="toggle-icon">
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                </div>
-            </div> -->
         </nav>
     </div>
 

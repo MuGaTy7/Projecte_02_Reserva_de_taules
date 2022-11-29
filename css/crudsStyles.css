@@ -1,0 +1,187 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+body {
+    background-color: #17180f;
+    font-family: 'Poppins', sans-serif!important;
+    padding: 50px;
+}
+
+
+/* SCROLLBBAR */
+
+::-webkit-scrollbar {
+    height: 8px;
+    width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(71, 71, 71, 0.704);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(71, 71, 71, 0.259);
+}
+
+::-webkit-scrollbar-thumb:active {
+    background-color: rgba(10, 10, 10, 0.259);
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: rgba(255, 255, 255, 0.025);
+}
+
+.table-hover tbody tr:hover {
+    color: rgba(255, 255, 255, 0.389);
+}
+
+tr {
+    color: white;
+}
+
+.table .thead-dark th {
+    background-color: #17180f;
+    border-color: #17180f;
+}
+
+.region-crud{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    grid-gap: 50px;
+}
+
+.widget-form{
+    position: relative;
+    height: 100%;
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.widget-table{
+    position: relative;
+    width: 75%;
+    height: 85vh;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+@media(max-width: 920px){
+    .region-crud{
+        flex-direction: column;
+    }
+    .widget-form{
+        width: 100%;
+    }
+    .widget-table{
+        width: 100%;
+    }
+}
+
+.fondo-form{
+    position: relative;
+    background: rgba(71, 71, 71, 0.259);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, .6);
+    border-radius: 20px;
+    padding: 20px;
+}
+
+body div[class*="fondo-table-"]{
+    position: relative;
+    background: rgba(71, 71, 71, 0.259);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, .6);
+    border-radius: 20px;
+    padding: 0px 30px;
+    height: 90%;
+}
+
+.buscador-table{
+    position: sticky;
+    top: 0px;
+    width: 100%;
+    background: #23241d;
+    border-top: solid 30px #23241d;
+    margin-bottom: 30px;
+}
+
+.scroll-table{
+    position: relative;
+    height: 72%;
+    overflow: auto;
+}
+
+label, .fondo-form h3{
+    color: white;
+}
+
+.fondo-form h3{
+    margin-top: 20px;
+}
+
+div.card-body form div.form-group:last-child{
+    margin-top: 25px;
+}
+
+.div-filtros{
+    display: flex;
+    gap: 15px;
+}
+
+.form-control{
+    background-color: #17180f;
+    border-color: #17180f;
+}
+.form-control:focus{
+    background-color: #17180f;
+    border-color: #17180f;
+    box-shadow: 0 0 0 0.2rem rgb(255 69 69 / 25%);
+}
+
+.left-widget, .left-widget-opt{
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+.left-widget a{
+    background-color: #23241d;
+    border-radius: 10px;
+    padding: 10px 15px;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+    cursor: pointer;
+}
+
+.left-widget-opt a{
+    background-color: #23241d;
+    border-radius: 10px;
+    padding: 7px 13px;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+    cursor: pointer;
+}
+
+.left-widget-opt a:hover{
+    color: white;
+}
+
+.left-widget-opt{
+    align-items: center;
+    height: 10%;
+}
