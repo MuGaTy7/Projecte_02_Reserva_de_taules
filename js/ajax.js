@@ -1,12 +1,15 @@
 // Al principio siempre llamará al mostrar mesas.
-listarMesas('','','');
+contenidoMesas();
 
 mesas_crud.addEventListener("click", () => {
     contenidoMesas();
 });
-
-camareros_crud.addEventListener("click", () => {});
-mantenimiento_crud.addEventListener("click", () => {});
+camareros_crud.addEventListener("click", () => {
+    contenidoCam();
+});
+mantenimiento_crud.addEventListener("click", () => {
+    contenidoMan();
+});
 
 function contenidoMesas(){
     var resultado_mesas = document.getElementById('resultado_mesas');
@@ -19,6 +22,14 @@ function contenidoMesas(){
             // console.log(contenido['form']);
             resultado_form.innerHTML = contenido['form'];
             resultado_mesas.innerHTML = contenido['mesas'];
+            // LLAMADA A LOS FILTROS: EVENTOS
+            var filtroId = document.getElementById('buscar_id');
+            filtroId.addEventListener('keyup', idMesas, false);
+            var filtroUbi = document.getElementById('buscar_ubi');
+            filtroUbi.addEventListener('keyup', ubiMesas, false);
+            var filtroCapa = document.getElementById('buscar_capa');
+            filtroCapa.addEventListener('keyup', capaMesas, false);
+            // LISTAR LOS REGISTROS
             listarMesas('','','')
         } else {
             respuesta_crud.innerHTML = 'ERROR';
@@ -26,6 +37,8 @@ function contenidoMesas(){
     }
     ajax.send();
 }
+
+
 
 function listarMesas(valor_id, valor_ubi, valor_capa) {
     var resultado_lista = document.getElementById('resultado');
@@ -167,31 +180,12 @@ function Editar(id) {
         ajax.send(formdata);
 
 }
-buscar_id.addEventListener("keyup", () => {
-    var valor_id = buscar_id.value;
-    var valor_ubi = buscar_ubi.value;
-    var valor_capa = buscar_capa.value;
-    if (buscar_id == '' || buscar_ubi == '' || buscar_capa == '') {
-        listarMesas('','','');
-    }else{
-        listarMesas(valor_id, valor_ubi, valor_capa);
-        clearInterval(intervalList);
-    }
-});
 
-buscar_ubi.addEventListener("keyup", () => {
-    var valor_id = buscar_id.value;
-    var valor_ubi = buscar_ubi.value;
-    var valor_capa = buscar_capa.value;
-    if (buscar_id == '' || buscar_ubi == '' || buscar_capa == '') {
-        listarMesas('','','');
-    }else{
-        listarMesas(valor_id, valor_ubi, valor_capa);
-        clearInterval(intervalList);
-    }
-});
+// FILTROS CRUD DE MESAS:
 
-buscar_capa.addEventListener("keyup", () => {
+function idMesas(){
+    console.log('a');
+    console.log(buscar_id);
     var valor_id = buscar_id.value;
     var valor_ubi = buscar_ubi.value;
     var valor_capa = buscar_capa.value;
@@ -201,4 +195,33 @@ buscar_capa.addEventListener("keyup", () => {
         listarMesas(valor_id, valor_ubi, valor_capa);
         clearInterval(intervalList);
     }
-});
+}
+
+function ubiMesas(){
+    console.log('a');
+    var valor_id = buscar_id.value;
+    var valor_ubi = buscar_ubi.value;
+    var valor_capa = buscar_capa.value;
+    if (buscar_id == '' || buscar_ubi == '' || buscar_capa == '') {
+        listarMesas('','','');
+    }else{
+        listarMesas(valor_id, valor_ubi, valor_capa);
+        clearInterval(intervalList);
+    }
+}
+
+function capaMesas(){
+    console.log('a');
+    var valor_id = buscar_id.value;
+    var valor_ubi = buscar_ubi.value;
+    var valor_capa = buscar_capa.value;
+    if (buscar_id == '' || buscar_ubi == '' || buscar_capa == '') {
+        listarMesas('','','');
+    }else{
+        listarMesas(valor_id, valor_ubi, valor_capa);
+        clearInterval(intervalList);
+    }
+}
+
+
+

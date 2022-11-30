@@ -28,7 +28,7 @@
     ?>
 
     <!-- CRDUD -->
-    <div class="region-crud">
+    <div class="region-crud" id="sillas">
         <div class="widget-form">
             <div class="left-widget">
                 <a href="./beforeInicio.php"><i class="fa-solid fa-arrow-left"></i></a>
@@ -80,7 +80,7 @@
                         <thead class="thead-dark">
                             <tr>
                                 <th>MESA</th>
-                                <th>UBICACIÓNES</th>
+                                <th>UBICACIÓN</th>
                                 <th>CAPACIDAD</th>
                                 <th>EDITAR</th>
                                 <th>ELIMINAR</th>
