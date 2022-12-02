@@ -653,3 +653,91 @@ canvas {
     z-index: 0;
     /* vertical-align: bottom; */
 }
+
+/* FORMULARIO RESERVAS ONLINE */
+
+.separator{
+    position: relative;
+    width: 0.1%;
+    background: white;
+    border-radius: 50px;
+}
+
+.form-online{
+    position: relative;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 30px;
+} 
+
+.form-online h3 {
+    margin-bottom: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    color: white;
+    font-weight: 600;
+}
+.form-online .div-online{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.foto-online{
+    position: relative;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.foto-online img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+    border: solid 1px white;
+}
+
+.form-online p, .foto-online p{
+    color: white;
+}
+
+.formulario-on{
+    position: relative;
+    width: 100%;
+    background: #23241d;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, .6);
+    border-radius: 20px;
+    display: flex;
+    padding: 50px;
+    gap: 50px;
+    z-index: 1;
+}
+
+.form-control{
+    background-color: #17180f;
+    border-color: #17180f;
+}
+.form-control:focus{
+    background-color: #17180f;
+    border-color: #17180f;
+    box-shadow: 0 0 0 0.2rem rgb(255 69 69 / 25%);
+}
+
+@media(max-width: 900px){
+    .formulario-on{
+        flex-direction: column;
+    }
+    .foto-online, .form-online{
+        width: 100%;
+    }
+    .separator{
+        display: none;
+    }
+}

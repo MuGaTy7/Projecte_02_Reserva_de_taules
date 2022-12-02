@@ -22,7 +22,6 @@
     <!-- JQUERY -->
     <script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="../js/ajax.js"></script>
 </head>
 
 <body>
@@ -38,8 +37,8 @@
             <ul>
                 <li><a id="btn_salon" href="#">Salón</a></li>
                 <li><a id="btn_terraza" href="#">Terraza</a></li>
-                <li><a id="btn_privada-1" href="#">Sala Privada 1</a></li>
-                <li><a id="btn_privada-2" href="#">Sala Privada 2</a></li>
+                <li><a id="btn_privada_1" href="#">Sala Privada 1</a></li>
+                <li><a id="btn_privada_2" href="#">Sala Privada 2</a></li>
                 <li><a id="estadisticas" href="./estadisticas.php"><i class="fa-solid fa-book"></i></a></li>
                 <li class="justify-end"><a href="../functions/cerrarSesion.php"><i
                             class="fa-solid fa-right-from-bracket"></i></a></li>
@@ -361,7 +360,6 @@
 
 </body>
 <!-- Script hamburguesa navbar -->
-<script src="../js/abrirNavbar.js"></script>
 <script src="../js/functions.js"></script>
 
 </html>

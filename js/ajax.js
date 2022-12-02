@@ -18,7 +18,7 @@ function contenidoMesas(){
     ajax.open('GET', '../ajaxFunctions/mostrarMesas.php');
     ajax.onload = function (){
         if (ajax.status == 200) {
-            var contenido = JSON.parse(ajax.responseText)
+            var contenido = JSON.parse(ajax.responseText);
             // console.log(contenido['form']);
             resultado_form.innerHTML = contenido['form'];
             resultado_mesas.innerHTML = contenido['mesas'];
@@ -29,6 +29,8 @@ function contenidoMesas(){
             filtroUbi.addEventListener('keyup', ubiMesas, false);
             var filtroCapa = document.getElementById('buscar_capa');
             filtroCapa.addEventListener('keyup', capaMesas, false);
+            var btn_reset = document.getElementById('reiniciar');
+            btn_reset.addEventListener('click', resetForm, false);
             // LISTAR LOS REGISTROS
             listarMesas('','','')
         } else {
@@ -159,7 +161,6 @@ function Eliminar(id)
 }
 
 function Editar(id) {
-
     var formdata = new FormData();
     formdata.append('id', id);
     var ajax = new XMLHttpRequest();
@@ -223,5 +224,10 @@ function capaMesas(){
     }
 }
 
-
-
+// FUNCIÓN DE RESETEAR VALORES DEL FORM:
+function resetForm(){
+    var formulario = document.getElementById('frm');
+    formulario.reset();
+    document.getElementById('registrar').value = "registrar";
+    document.getElementById('titleRegister').textContent = "Registro de mesas";
+}

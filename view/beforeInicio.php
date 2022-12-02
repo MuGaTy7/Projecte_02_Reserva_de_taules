@@ -32,7 +32,7 @@
         <div class="botones-inicio">
             <div class="grid-buttons">
                 <div class="button-principal div1">
-                    <a href="./inicio.php">Mapa de mesas</a>
+                    <a href="./inicioCopy.php">Mapa de mesas</a>
                 </div>
                 <div class="button-crud div2">
                     <a href="./crudMesas.php">CRUD Mesas</a>

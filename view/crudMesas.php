@@ -49,8 +49,13 @@
                             <label for="">Capacidad</label>
                             <input type="text" name="capa" id="capa" placeholder="Capacidad" class="form-control">
                         </div>
-                        <div class="form-group">
-                            <input type="button" value="Registrar" id="registrar" class="btn btn-danger btn-block">
+                        <div>
+                            <div class="form-group">
+                                <input type="button" value="Registrar" id="registrar" class="btn btn-danger btn-block">
+                            </div>
+                            <div class="form-group">
+                                <input type="button" value="Reiniciar" id="reiniciar" class="btn btn-danger btn-block">
+                            </div>
                         </div>
                     </form>
                 </div>
