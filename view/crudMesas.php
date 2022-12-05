@@ -49,6 +49,10 @@
                             <label for="">Capacidad</label>
                             <input type="text" name="capa" id="capa" placeholder="Capacidad" class="form-control">
                         </div>
+                        <div class="form-group">
+                            <label for="">Fotografía</label>
+                            <input type="file" name="foto" id="foto" placeholder="Fotografías" class="form-control">
+                        </div>
                         <div>
                             <div class="form-group">
                                 <input type="button" value="Registrar" id="registrar" class="btn btn-danger btn-block">

@@ -265,8 +265,8 @@ function Registrar(){
                     });
                     registrar.value = "Registrar";
                     idp.value = "";
-                    listarMesas('','','');
                     form.reset();
+                    listarMesas('','','');
                 }
             } else {
                 respuesta_ajax.innerText = 'Error';

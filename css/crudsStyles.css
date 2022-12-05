@@ -136,6 +136,14 @@ label, .fondo-form h3{
     gap: 20px;
 }
 
+@media(min-width: 920px) and (max-width: 1220px){
+    .div-form-group{
+        flex-direction: column;
+        width: 100%;
+        gap: 0;
+    }
+}
+
 .form-group{
     width: 100%;
 }
@@ -190,4 +198,10 @@ label, .fondo-form h3{
 .left-widget-opt{
     align-items: center;
     height: 10%;
+}
+
+.form-foto{
+    padding: 0;
+    background: transparent;
+    border-color: transparent;
 }
