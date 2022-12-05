@@ -15,7 +15,7 @@ $contenido_mesas = [
             <label for=''>Capacidad</label>
             <input type='text' name='capa' id='capa' placeholder='Capacidad' class='form-control'>
         </div>
-        <div>
+        <div class='div-form-group'>
             <div class='form-group'>
                 <input type='button' value='Registrar' id='registrar' class='btn btn-danger btn-block'>
             </div>

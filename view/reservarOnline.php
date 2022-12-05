@@ -23,9 +23,7 @@
     <link rel="stylesheet" href="../css/inicioStyles.css">
 </head>
 <body style="padding: 100px;">
-    <!-- VALIDACIÓN DE SESIÓN -->
 
-    <!--  -->
     <div class="formulario-on">
         <div class="foto-online">
             <img src="../img/star-wars-nuevo-largometraje.jpg" alt="">
@@ -46,7 +44,16 @@
             </div>
             <div class="div-online">
                 <input type="date" name="dia" id="dia" class="form-control">
-                <input type="time" name="hora" id="hora" class="form-control">
+                <select class="form-control" name="hora" id="hora" placeholder="aaaa">
+                    <option value="1">13:00:00</option>
+                    <option value="2">14:00:00</option>
+                    <option value="3">15:00:00</option>
+                    <option value="4">16:00:00</option>
+                    <option value="5">20:00:00</option>
+                    <option value="6">21:00:00</option>
+                    <option value="7">22:00:00</option>
+                    <option value="8">23:00:00</option>
+                </select>
             </div>
             <div class="div-online">
                 <input type="submit" class="btn btn-danger" value="Reservar">
@@ -54,6 +61,5 @@
         </form>
     </div>
 </body>
-<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 <script src="../js/loginAnimation.js"></script>
 </html>
