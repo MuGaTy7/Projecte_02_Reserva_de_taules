@@ -37,13 +37,13 @@ if ($disponibilidad == 'Ocupado') {
     $query1 = "SELECT * FROM tbl_mesa WHERE id_mesa = $mesa";
     $ocup = mysqli_fetch_all(mysqli_query($conexion, $query1));
     if ($ocup[0][3] === "Ocupado" or $capa > $ocup[0][2]  ){
-        echo "<script>location.href = '../view/inicio.php?errorOcupacion=true'</script>";
+        echo "<script>location.href = '../view/inicioCopy.php?errorOcupacion=true'</script>";
     }else{
         mysqli_autocommit($conexion,false);
         try{
             mysqli_begin_transaction($conexion, MYSQLI_TRANS_START_READ_WRITE);
             $stmt = mysqli_stmt_init($conexion);
-            $sql1 = "INSERT INTO `tbl_reserva`(`id_reserva`, `id_user`, `id_mesa`, `nom_persona`, `apellido_persona`, `telefono_persona`,`ocupacion_res`, `hora_inici`, `hora_fi`) VALUES (null, $id_user, $mesa, '$nombre', '$apellido','$tel',$capa, current_timestamp(), null)";
+            $sql1 = "INSERT INTO `tbl_reserva`(`id_reserva`, `id_user`, `id_mesa`, `nom_persona`, `apellido_persona`, `telefono_persona`,`ocupacion_res`, `hora_inici`, `hora_fi`, `tipo_reserva`) VALUES (null, $id_user, $mesa, '$nombre', '$apellido','$tel', '$capa', current_timestamp(), null, 'local')";
             mysqli_stmt_prepare($stmt, $sql1);
             mysqli_stmt_execute($stmt);
             $id = mysqli_insert_id($conexion);
@@ -57,7 +57,7 @@ if ($disponibilidad == 'Ocupado') {
             }
             mysqli_commit($conexion);
             mysqli_stmt_close($stmt);
-            echo "<script>location.href = '../view/inicio.php?reservadaOk=true'</script>";
+            echo "<script>location.href = '../view/inicioCopy.php?reservadaOk=true'</script>";
 
         }
         catch(Exception $e){
@@ -97,7 +97,7 @@ if ($disponibilidad == 'Ocupado') {
 
             mysqli_commit($conexion);
             mysqli_stmt_close($stmt);
-            echo "<script>location.href = '../view/inicio.php?averiadaOk=true'</script>";
+            echo "<script>location.href = '../view/inicioCopy.php?averiadaOk=true'</script>";
 
         } catch(Exception $e){
             mysqli_rollback($conexion);
@@ -110,7 +110,7 @@ if ($disponibilidad == 'Ocupado') {
     $valid_login = mysqli_query($conexion, $query1);
     $match = $valid_login -> num_rows;
     if ($match === 1){
-        echo "<script>location.href = '../view/inicio.php?mesaYaLibre=true'</script>";
+        echo "<script>location.href = '../view/inicioCopy.php?mesaYaLibre=true'</script>";
     }else{
         mysqli_autocommit($conexion,false);
         try{
@@ -129,7 +129,7 @@ if ($disponibilidad == 'Ocupado') {
             }
             mysqli_commit($conexion);
             mysqli_stmt_close($stmt);
-            echo "<script>location.href = '../view/inicio.php?liberadaOk=true'</script>";
+            echo "<script>location.href = '../view/inicioCopy.php?liberadaOk=true'</script>";
         }
         catch(Exception $e){
             mysqli_rollback($conexion);
@@ -164,4 +164,4 @@ if ($disponibilidad == 'Ocupado') {
     }
 }
 
-echo "<script>location.href = '../view/inicio.php'</script>";
+echo "<script>location.href = '../view/inicioCopy.php'</script>";

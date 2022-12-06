@@ -41,51 +41,42 @@ function Mesas(sala){
             var tabla_mesas = '';
             var array_mesas = JSON.parse(ajax.responseText)
             array_mesas.forEach(mesas => {
-                if (mesas.capacidad == '2'){
-                    if (mesas.disponibilidad == 'Libre'){
-                        tabla_mesas += "<button value='"+mesas.id_mesa+"' class='mesa-rest trigger'><img class='ocu-2' src='../img/libre-2.png' alt=''></button>";
-                    } else if (mesas.disponibilidad == 'Ocupado'){
-                        tabla_mesas += "<button value='"+mesas.id_mesa+"' class='mesa-rest trigger'><img class='ocu-2' src='../img/ocupado-2.png' alt=''></button>";
-                    } else if (mesas.disponibilidad == 'Averiado'){
-                        tabla_mesas += "<button value='"+mesas.id_mesa+"' class='mesa-rest trigger'><img class='ocu-2' src='../img/averiado-2.png' alt=''></button>";
-                    }
-                } else if (mesas.capacidad == '4'){
-                    if (mesas.disponibilidad == 'Libre'){
-                        tabla_mesas += "<button value='"+mesas.id_mesa+"' class='mesa-rest trigger'><img class='ocu-4' src='../img/libre-4.png' alt=''></button>";
-                    } else if (mesas.disponibilidad == 'Ocupado'){
-                        tabla_mesas += "<button value='"+mesas.id_mesa+"' class='mesa-rest trigger'><img class='ocu-4' src='../img/ocupado-4.png' alt=''></button>";
-                    } else if (mesas.disponibilidad == 'Averiado'){
-                        tabla_mesas += "<button value='"+mesas.id_mesa+"' class='mesa-rest trigger'><img class='ocu-4' src='../img/averiado-4.png' alt=''></button>";
-                    }
-                } else if (mesas.capacidad == '6'){
-                    if (mesas.disponibilidad == 'Libre'){
-                        tabla_mesas += "<button value='"+mesas.id_mesa+"' class='mesa-rest trigger'><img class='ocu-6' src='../img/libre-6.png' alt=''></button>";
-                    } else if (mesas.disponibilidad == 'Ocupado'){
-                        tabla_mesas += "<button value='"+mesas.id_mesa+"' class='mesa-rest trigger'><img class='ocu-6' src='../img/ocupado-6.png' alt=''></button>";
-                    } else if (mesas.disponibilidad == 'Averiado'){
-                        tabla_mesas += "<button value='"+mesas.id_mesa+"' class='mesa-rest trigger'><img class='ocu-6' src='../img/averiado-6.png' alt=''></button>";
-                    }
-                } else if (mesas.capacidad == '10'){
-                    if (mesas.disponibilidad == 'Libre'){
-                        tabla_mesas += "<button value='"+mesas.id_mesa+"' class='mesa-rest trigger'><img class='ocu-10' src='../img/libre-10.png' alt=''></button>";
-                    } else if (mesas.disponibilidad == 'Ocupado'){
-                        tabla_mesas += "<button value='"+mesas.id_mesa+"' class='mesa-rest trigger'><img class='ocu-10' src='../img/ocupado-10.png' alt=''></button>";
-                    } else if (mesas.disponibilidad == 'Averiado'){
-                        tabla_mesas += "<button value='"+mesas.id_mesa+"' class='mesa-rest trigger'><img class='ocu-10' src='../img/averiado-10.png' alt=''></button>";
-                    }
-                } else if (mesas.capacidad == '12'){
-                    if (mesas.disponibilidad == 'Libre'){
-                        tabla_mesas += "<button value='"+mesas.id_mesa+"' class='mesa-rest trigger'><img class='ocu-12' src='../img/libre-12.png' alt=''></button>";
-                    } else if (mesas.disponibilidad == 'Ocupado'){
-                        tabla_mesas += "<button value='"+mesas.id_mesa+"' class='mesa-rest trigger'><img class='ocu-12' src='../img/ocupado-12.png' alt=''></button>";
-                    } else if (mesas.disponibilidad == 'Averiado'){
-                        tabla_mesas += "<button value='"+mesas.id_mesa+"' class='mesa-rest trigger'><img class='ocu-12' src='../img/averiado-12.png' alt=''></button>";
-                    }
+                // Ahora ya no importa la capacidad para la foto, tan solo la que este subida en la BD
+                if (mesas.disponibilidad == 'Libre'){
+                    tabla_mesas += "<button value='"+mesas.id_mesa+"' class='mesa-rest trigger libre'><img class='mesas-n' src='../img/uploads/"+mesas.foto_mesa+"' alt=''></button>";
+                } else if (mesas.disponibilidad == 'Ocupado'){
+                    tabla_mesas += "<button value='"+mesas.id_mesa+"' class='mesa-rest trigger ocupado'><img class='mesas-n' src='../img/uploads/"+mesas.foto_mesa+"' alt=''></button>";
+                } else if (mesas.disponibilidad == 'Averiado'){
+                    tabla_mesas += "<button value='"+mesas.id_mesa+"' disabled class='mesa-rest trigger averiado'><img class='mesas-n' src='../img/uploads/"+mesas.foto_mesa+"' alt=''></button>";
                 }
             });
             resultado_mesas.innerHTML = tabla_mesas;
+            abrirModal();
         }
     }
     ajax.send(formdata);
 }
 
+function abrirModal(){
+    $('.trigger').on('click', function() {
+        $('.modal-wrapper').toggleClass('open');
+        $('.page-wrapper').toggleClass('blur-it');
+        return false;
+    });
+    $('.mesa-rest').on('click', function() {
+        const form = document.querySelector('#form1');
+        var mesa = $(this).val();
+        const input = document.createElement("input")
+        input.type = "hidden";
+        input.name = "mesa";
+        input.id = "deleteme";
+        input.value = mesa;
+        form.insertAdjacentElement("afterbegin", input);
+        
+        document.getElementById('title-modal').innerHTML = "Mesa " + mesa; 
+    });
+    $('#asd').on('click', function() {
+        input = document.querySelector('#deleteme');
+        input.remove();
+    });
+}

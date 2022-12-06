@@ -21,6 +21,7 @@
     <script src="https://kit.fontawesome.com/2b5286e1aa.js" crossorigin="anonymous"></script>
     <!-- Hoja de estilos -->
     <link rel="stylesheet" href="../css/inicioStyles.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 </head>
 <body style="padding: 100px;">
 
@@ -44,16 +45,7 @@
             </div>
             <div class="div-online">
                 <input type="date" name="dia" id="dia" class="form-control">
-                <select class="form-control" name="hora" id="hora" placeholder="aaaa">
-                    <option value="1">13:00:00</option>
-                    <option value="2">14:00:00</option>
-                    <option value="3">15:00:00</option>
-                    <option value="4">16:00:00</option>
-                    <option value="5">20:00:00</option>
-                    <option value="6">21:00:00</option>
-                    <option value="7">22:00:00</option>
-                    <option value="8">23:00:00</option>
-                </select>
+                <input type="time" name="hora" id="hora" class="form-control">
             </div>
             <div class="div-online">
                 <input type="submit" class="btn btn-danger" value="Reservar">
@@ -61,5 +53,32 @@
         </form>
     </div>
 </body>
+    <!-- RESERVA REALIZADA CORRECTAMENTE: -->
+    <?php
+    if (isset($_GET['onlineOk'])){
+    ?>
+        <script>
+        Swal.fire({
+        icon: 'success',
+        title: 'Mesa reservada!',
+        text: 'Muchas gracias por reservar tu mesa y confiar en nosotros, un saludo!'})
+        </script>
+    <?php
+    }
+    ?>
+    <!-- NO HAY MESA PARA PODER RESERVAR: -->
+    <?php
+    if (isset($_GET['noHayMesas'])){
+    ?>
+        <script>
+        Swal.fire({
+        icon: 'error',
+        title: 'Mesa no disponible!',
+        text: 'Lo sentimos mucho, en este momento no tenemos la mesa que estas buscando. Prueba con otra hora en otra ubicación.'})
+        </script>
+    <?php
+    }
+    ?>
+
 <script src="../js/loginAnimation.js"></script>
 </html>

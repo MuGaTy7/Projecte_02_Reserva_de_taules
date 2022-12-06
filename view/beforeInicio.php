@@ -32,10 +32,14 @@
         <div class="botones-inicio">
             <div class="grid-buttons">
                 <div class="button-principal div1">
-                    <a href="./inicioCopy.php">MAPA DE MESAS</a>
+                    <a href="./inicioCopy.php"></a>
+                    <p>MAPA DE MESAS</p>
+                    <img src="../img/ocupado-12.png" alt="">
                 </div>
                 <div class="button-crud div2">
-                    <a href="./crudMesas.php">CRUDs</a>
+                    <a href="./crudMesas.php"></a>
+                    <p>CRUDs</p>
+                    <img style="width: 90%;" src="../img/CRUD-portada.jpg" alt="">
                 </div>
             </div>
         </div>

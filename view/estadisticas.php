@@ -33,7 +33,7 @@
         <nav class="widget-navbar">
             <ul>
                 <div class="justify-start">
-                    <li><a id="volver" href="./inicio.php"><i class="fa-solid fa-arrow-left"></i></a></li>
+                    <li><a id="volver" href="./inicioCopy.php"><i class="fa-solid fa-arrow-left"></i></a></li>
                     <li><p style="color: white;">Bienvenido <b><?php echo $_SESSION['username_user'] ?></b></p></li>
                 </div>
                 <li><a id="filtros" onclick="abrirFiltros()" href="#"><i class="fa-solid fa-magnifying-glass"></i> FILTROS</a></li>
