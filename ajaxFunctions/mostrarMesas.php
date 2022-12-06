@@ -5,7 +5,7 @@ $contenido_mesas = [
     <h3 id='titleRegister' class='text-center'>Registro de mesas</h3>
 </div>
 <div class='card-body'>
-    <form action='' method='post' id='frm'>
+    <form action='' method='post' id='frm' enctype='multipart/form-data'>
         <div class='form-group'>
             <label for=''>Ubicación</label>
             <input type='hidden' name='idp' id='idp' value=''>
@@ -48,6 +48,8 @@ $contenido_mesas = [
                 <th>MESA</th>
                 <th>UBICACIÓN</th>
                 <th>CAPACIDAD</th>
+                <th>DISPONIBILIDAD</th>
+                <th>FOTO</th>
                 <th>EDITAR</th>
                 <th>ELIMINAR</th>
             </tr>

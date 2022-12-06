@@ -32,19 +32,10 @@
         <div class="botones-inicio">
             <div class="grid-buttons">
                 <div class="button-principal div1">
-                    <a href="./inicioCopy.php">Mapa de mesas</a>
+                    <a href="./inicioCopy.php">MAPA DE MESAS</a>
                 </div>
                 <div class="button-crud div2">
-                    <a href="./crudMesas.php">CRUD Mesas</a>
-                </div>
-                <div class="button-crud div3">
-                    <a href="./crudCam.php">CRUD Camareros</a>
-                </div>
-                <div class="button-crud div4">
-                    <a href="./crudMan.php">CRUD Mantenimiento</a>
-                </div>
-                <div class="button-crud div5">
-                    <a href="">BEAR</a>
+                    <a href="./crudMesas.php">CRUDs</a>
                 </div>
             </div>
         </div>

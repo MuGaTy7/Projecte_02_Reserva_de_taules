@@ -48,7 +48,7 @@ function contenidoMesas(){
             filtroCapa.addEventListener('keyup', capaMesas, false);
             var btn_reset = document.getElementById('reiniciar');
             btn_reset.addEventListener('click', resetForm, false);
-            registrar.addEventListener('click', Registrar, false);
+            registrar.addEventListener('click', RegistrarMesas, false);
             // LISTAR LOS REGISTROS
             listarMesas('','','');
         } else {
@@ -79,6 +79,8 @@ function listarMesas(valor_id, valor_ubi, valor_capa) {
                  str="<tr><td>" + item.id_mesa + "</td>";
                 str=str+"<td>" + item.ubicacion + "</td>";
                 str+="<td>" + item.capacidad +  "</td>";
+                str+="<td>" + item.disponibilidad +  "</td>";
+                str+="<td>" + item.foto_mesa +  "</td>";
                 str+="<td>";
                  str=str+ " <button type='button' class='btn btn-success' onclick="+"Editar(" + item.id_mesa + "," + '"' + 'mesas' + '"' + ")>Editar</button>";  
                 str+="</td> "; 
@@ -116,7 +118,7 @@ function contenidoCam(){
             filtroUsername.addEventListener('keyup', usernameCam, false);
             var btn_reset = document.getElementById('reiniciar');
             btn_reset.addEventListener('click', resetForm, false);
-            registrar.addEventListener('click', Registrar, false);
+            registrar.addEventListener('click', RegistrarCam, false);
             // LISTAR LOS REGISTROS
             listarCam('','','');
         } else {
@@ -188,7 +190,7 @@ function contenidoMan(){
             filtroUsername.addEventListener('keyup', usernameMan, false);
             var btn_reset = document.getElementById('reiniciar');
             btn_reset.addEventListener('click', resetForm, false);
-            registrar.addEventListener('click', Registrar, false);
+            registrar.addEventListener('click', RegistrarMan, false);
             // LISTAR LOS REGISTROS
             listarMan('','','');
         } else {
@@ -237,20 +239,21 @@ function listarMan(valor_id, valor_dni, valor_username) {
     ajax.send(formdata);
 }
 
-
-function Registrar(){
+// FUNCIONES DE REGISTRAR:
+function RegistrarMesas(){
     var form = document.getElementById('frm');
-    
     var formdata = new FormData(form);
-    
+    formdata.append('tipo', 'mesas');
+
     var ajax = new XMLHttpRequest();
     ajax.open('POST', '../ajaxFunctions/registrar.php');
         ajax.onload=function (){
             if(ajax.status===200){
+                console.log(ajax.responseText);
                 if (ajax.responseText == "registrado") {
                     Swal.fire({
                         icon: 'success',
-                        title: 'Registrado',
+                        title: 'Mesa registrada!',
                         showConfirmButton: false,
                         timer: 1500
                     });
@@ -259,7 +262,7 @@ function Registrar(){
                 } else if (ajax.responseText == 'modificado') {
                     Swal.fire({
                         icon: 'success',
-                        title: 'Modificado',
+                        title: 'Mesa modificada!',
                         showConfirmButton: false,
                         timer: 1500
                     });
@@ -267,6 +270,80 @@ function Registrar(){
                     idp.value = "";
                     form.reset();
                     listarMesas('','','');
+                }
+            } else {
+                respuesta_ajax.innerText = 'Error';
+            }
+        }
+        ajax.send(formdata);
+}
+function RegistrarCam(){
+    var form = document.getElementById('frm');
+    var formdata = new FormData(form);
+    formdata.append('tipo', 'camareros');
+
+    var ajax = new XMLHttpRequest();
+    ajax.open('POST', '../ajaxFunctions/registrar.php');
+        ajax.onload=function (){
+            if(ajax.status===200){
+                console.log(ajax.responseText);
+                if (ajax.responseText == "registrado") {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Camarero registrado!',
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                    form.reset();
+                    listarCam('','','');
+                } else if (ajax.responseText == 'modificado') {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Camarero modificado!',
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                    registrar.value = "Registrar";
+                    idp.value = "";
+                    form.reset();
+                    listarCam('','','');
+                }
+            } else {
+                respuesta_ajax.innerText = 'Error';
+            }
+        }
+        ajax.send(formdata);
+}
+function RegistrarMan(){
+    var form = document.getElementById('frm');
+    var formdata = new FormData(form);
+    formdata.append('tipo', 'mantenimiento');
+
+    var ajax = new XMLHttpRequest();
+    ajax.open('POST', '../ajaxFunctions/registrar.php');
+        ajax.onload=function (){
+            if(ajax.status===200){
+                console.log(ajax.responseText);
+                if (ajax.responseText == "registrado") {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Mantenimiento registrado!',
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                    form.reset();
+                    listarMan('','','');
+                } else if (ajax.responseText == 'modificado') {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Mantenimiento modificado!',
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                    registrar.value = "Registrar";
+                    idp.value = "";
+                    form.reset();
+                    listarMan('','','');
                 }
             } else {
                 respuesta_ajax.innerText = 'Error';
