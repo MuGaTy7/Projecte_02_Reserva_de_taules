@@ -92,6 +92,18 @@
     <?php
     }
     ?>
-
+    <!-- ERROR DE DIA: -->
+    <?php
+    if (isset($_GET['fechaInc'])){
+    ?>
+        <script>
+        Swal.fire({
+        icon: 'error',
+        title: 'Fecha incorrecta!',
+        text: 'La fecha que has introducido no es válida ya que es menor que la actual, prueba otra vez.'})
+        </script>
+    <?php
+    }
+    ?>
 <script src="../js/validateOnline.js"></script>
 </html>
