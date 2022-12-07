@@ -40,7 +40,6 @@
                     <p style="color: white;">Para hacer tu reserva haz click en este enlace.</p>
                     <button style="left: 0%; width: 50%;"><a style="text-decoration: none; color: inherit;" href="./view/reservarOnline.php">RESERVAR</a></button>
                 </div>
-                
             </form>
         </div>
     </div>
@@ -64,6 +63,7 @@
 </body>
 <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 <script src="./js/loginAnimation.js"></script>
-
+<!-- AJAX DE MESAS -->
+<script src="../js/ajaxMesas.js"></script>
 
 </html>

@@ -2,6 +2,7 @@
 var intervalList2 = '';
 var intervalList3 = '';
 var intervalList = '';
+var intervalList4 = '';
 
 contenidoMesas();
 intervalList = setInterval(listarMesas, 3000, '', '', '');
@@ -10,6 +11,7 @@ mesas_crud.addEventListener("click", () => {
     clearInterval(intervalList);
     clearInterval(intervalList2);
     clearInterval(intervalList3);
+    clearInterval(intervalList4);
     contenidoMesas();
     intervalList = setInterval(listarMesas, 3000, '', '', '');
 });
@@ -17,6 +19,7 @@ camareros_crud.addEventListener("click", () => {
     clearInterval(intervalList);
     clearInterval(intervalList2);
     clearInterval(intervalList3);
+    clearInterval(intervalList4);
     contenidoCam();
     intervalList2 = setInterval(listarCam, 3000, '', '', '');
 });
@@ -24,8 +27,17 @@ mantenimiento_crud.addEventListener("click", () => {
     clearInterval(intervalList);
     clearInterval(intervalList2);
     clearInterval(intervalList3);
+    clearInterval(intervalList4);
     contenidoMan();
     intervalList3 = setInterval(listarMan, 3000, '', '', '');
+});
+reservas_crud.addEventListener("click", () => {
+    clearInterval(intervalList);
+    clearInterval(intervalList2);
+    clearInterval(intervalList3);
+    clearInterval(intervalList4);
+    contenidoRes();
+    intervalList4 = setInterval(listarRes, 3000, '', '', '');
 });
 
 function contenidoMesas(){
@@ -49,6 +61,7 @@ function contenidoMesas(){
             var btn_reset = document.getElementById('reiniciar');
             btn_reset.addEventListener('click', resetForm, false);
             registrar.addEventListener('click', RegistrarMesas, false);
+            widget_form.style.display = 'flex';
             // LISTAR LOS REGISTROS
             listarMesas('','','');
         } else {
@@ -119,6 +132,7 @@ function contenidoCam(){
             var btn_reset = document.getElementById('reiniciar');
             btn_reset.addEventListener('click', resetForm, false);
             registrar.addEventListener('click', RegistrarCam, false);
+            widget_form.style.display = 'flex';
             // LISTAR LOS REGISTROS
             listarCam('','','');
         } else {
@@ -191,6 +205,7 @@ function contenidoMan(){
             var btn_reset = document.getElementById('reiniciar');
             btn_reset.addEventListener('click', resetForm, false);
             registrar.addEventListener('click', RegistrarMan, false);
+            widget_form.style.display = 'flex';
             // LISTAR LOS REGISTROS
             listarMan('','','');
         } else {
@@ -238,6 +253,73 @@ function listarMan(valor_id, valor_dni, valor_username) {
     }
     ajax.send(formdata);
 }
+
+// 
+
+function contenidoRes(){
+    var resultado_reservas = document.getElementById('resultado_mesas');
+    var resultado_form = document.getElementById('resultado_form');
+    var ajax = new XMLHttpRequest();
+    ajax.open('GET', '../ajaxFunctions/mostrarReservas.php');
+    ajax.onload = function (){
+        if (ajax.status == 200) {
+            var contenido = JSON.parse(ajax.responseText);
+            // console.log(contenido['camareros']);
+            resultado_form.innerHTML = contenido['form'];
+            resultado_reservas.innerHTML = contenido['reservas'];
+            // LLAMADA A LOS FILTROS: EVENTOS
+            var filtroMesa = document.getElementById('buscar_mesa');
+            filtroMesa.addEventListener('keyup', mesaRes, false);
+            var filtroNombre = document.getElementById('buscar_nombre');
+            filtroNombre.addEventListener('keyup', nomRes, false);
+            var filtroDia = document.getElementById('buscar_dia');
+            filtroDia.addEventListener('change', diaRes, false);
+            widget_form.style.display = 'none';
+            // LISTAR LOS REGISTROS
+            listarRes('','','');
+        } else {
+            resultado_reservas.innerHTML = 'ERROR';
+        }
+    }
+    ajax.send();
+}
+
+function listarRes(valor_mesa, valor_nombre, valor_dia) {
+    var resultado_lista = document.getElementById('resultado');
+    //var frmbusqueda=document.getElementById('frmbusqueda');
+    var formdata = new FormData();
+    formdata.append('valor_mesa', valor_mesa);
+    formdata.append('valor_nombre', valor_nombre);
+    formdata.append('valor_dia', valor_dia);
+    formdata.append('tipo', 'reservas');
+
+    var ajax = new XMLHttpRequest();
+    ajax.open('POST', '../ajaxFunctions/listar.php');
+    ajax.onload = function () {
+        var str="";
+        if (ajax.status == 200) {
+            // console.log(ajax.responseText);
+            var json=JSON.parse(ajax.responseText);
+             var tabla='';
+             json.forEach(function(item) {
+                 str="<tr><td>" + item.id_reserva + "</td>";
+                str=str+"<td>" + item.id_mesa + "</td>";
+                str+="<td>" + item.nom_persona +  "</td>";
+                str+="<td>" + item.apellido_persona +  "</td>";
+                str+="<td>" + item.telefono_persona +  "</td>";
+                str+="<td>" + item.hora_inici +  "</td>";
+                str+="<td>" + item.duracion +  "</td>";
+            str+="</tr>";
+             tabla += str;
+         });
+        resultado_lista.innerHTML = tabla;
+        } else {
+            resultado_lista.innerText = 'Error';
+        }
+    }
+    ajax.send(formdata);
+}
+
 
 // FUNCIONES DE REGISTRAR:
 function RegistrarMesas(){
@@ -328,6 +410,13 @@ function RegistrarCam(){
                         showConfirmButton: false,
                         timer: 1500
                     });
+                } else if (ajax.responseText == 'errorDni'){
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'DNI erróneo!',
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
                 }
             } else {
                 respuesta_ajax.innerText = 'Error';
@@ -365,6 +454,27 @@ function RegistrarMan(){
                     idp.value = "";
                     form.reset();
                     listarMan('','','');
+                } else if (ajax.responseText == 'camposVacios'){
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Campo vacío!',
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                } else if (ajax.responseText == 'userRep'){
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Usuario repetido!',
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                } else if (ajax.responseText == 'errorDni'){
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'DNI erróneo!',
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
                 }
             } else {
                 respuesta_ajax.innerText = 'Error';
@@ -575,6 +685,43 @@ function usernameMan(){
     }
 }
 
+// FILTROS CRUD DE RESERVAS:
+
+function mesaRes(){
+    var valor_mesa = buscar_mesa.value;
+    var valor_nombre = buscar_nombre.value;
+    var valor_dia = buscar_dia.value;
+    if (buscar_mesa == '' || buscar_nombre == '' || buscar_dia == '') {
+        listarRes('','','');
+    }else{
+        listarRes(valor_mesa, valor_nombre, valor_dia);
+        clearInterval(intervalList4);
+    }
+}
+
+function nomRes(){
+    var valor_mesa = buscar_mesa.value;
+    var valor_nombre = buscar_nombre.value;
+    var valor_dia = buscar_dia.value;
+    if (buscar_mesa == '' || buscar_nombre == '' || buscar_dia == '') {
+        listarRes('','','');
+    }else{
+        listarRes(valor_mesa, valor_nombre, valor_dia);
+        clearInterval(intervalList4);
+    }
+}
+
+function diaRes(){
+    var valor_mesa = buscar_mesa.value;
+    var valor_nombre = buscar_nombre.value;
+    var valor_dia = buscar_dia.value;
+    if (buscar_mesa == '' || buscar_nombre == '' || buscar_dia == '') {
+        listarRes('','','');
+    }else{
+        listarRes(valor_mesa, valor_nombre, valor_dia);
+        clearInterval(intervalList4);
+    }
+}
 
 // FUNCIÓN DE RESETEAR VALORES DEL FORM:
 function resetForm(){
@@ -583,3 +730,5 @@ function resetForm(){
     document.getElementById('registrar').value = "Registrar";
     document.getElementById('titleRegister').textContent = "Registro de mesas";
 }
+
+var widget_form = document.getElementsByClassName('widget-form')[0];

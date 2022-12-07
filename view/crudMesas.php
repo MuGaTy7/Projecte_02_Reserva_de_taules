@@ -70,6 +70,7 @@
                 <a id="mesas_crud">MESAS</a>
                 <a id="camareros_crud">CAMAREROS</a>
                 <a id="mantenimiento_crud">MANTENIMIENTO</a>
+                <a id="reservas_crud">RESERVAS</a>
             </div>
             <div id="resultado_mesas" class="fondo-table-mesas"> <!--*********************************-->
                 <div class="buscador-table">
@@ -107,5 +108,7 @@
 
     <script src="../js/ajax.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <!-- AJAX DE MESAS -->
+    <script src="../js/ajaxMesas.js"></script>
 </body>
 </html>

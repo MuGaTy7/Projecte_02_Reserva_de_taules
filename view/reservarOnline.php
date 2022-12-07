@@ -33,11 +33,20 @@
         <form action="../functions/reservasOnline.php" method="post" class="form-online">
             <h3>Reserva Online</h3>
             <div class="div-online">
-                <input type="text" name="nombre" id="nombre" class="form-control" placeholder="Escriba su nombre...">
-                <input type="text" name="apellidos" id="apellidos" class="form-control" placeholder="Escriba sus apellidos...">
+                <div class="campos-errores">
+                    <input type="text" name="nombre" id="nombre" class="form-control" placeholder="Escriba su nombre...">
+                    <p id="texto_nombre"><i class="fa-solid fa-circle-exclamation"></i>Error en el campo nombre!</p>
+                </div>
+                <div class="campos-errores">
+                    <input type="text" name="apellidos" id="apellidos" class="form-control" placeholder="Escriba sus apellidos...">
+                    <p id="texto_apellidos"><i class="fa-solid fa-circle-exclamation"></i>Error en el campo apellidos!</p>
+                </div>
             </div>
             <div class="div-online">
-                <input type="text" name="telefono" id="telefono" class="form-control" placeholder="Escriba su número de teléfono...">
+                <div class="campos-errores" style="width: 100%;">
+                    <input type="text" name="telefono" id="telefono" class="form-control" placeholder="Escriba su número de teléfono...">
+                    <p id="texto_telefono"><i class="fa-solid fa-circle-exclamation"></i>Error en el campo telefono!</p>
+                </div>
             </div>
             <div class="div-online">
                 <!-- <input type="number" name="personas" id="personas" class="form-control" placeholder="Número de comensales"> -->
@@ -55,6 +64,9 @@
                     <option value="sala_privada1">Sala privada 1</option>
                     <option value="sala_privada2">Sala privada 2</option>
                 </select>
+            </div>
+            <div class="div-online">
+                <p style="margin-bottom: 0;">En nuestro restaurante tan solo se puden hacer reservas por la <b>noche</b>: (19:00 a 23:00)</p>
             </div>
             <div class="div-online">
                 <input type="date" min="<?php echo date('Y-m-d') ?>" name="dia" id="dia" class="form-control">
@@ -99,11 +111,26 @@
         <script>
         Swal.fire({
         icon: 'error',
-        title: 'Fecha incorrecta!',
+        title: 'Fecha incorrecta o vacía!',
         text: 'La fecha que has introducido no es válida ya que es menor que la actual, prueba otra vez.'})
         </script>
     <?php
     }
     ?>
+    <!-- ERROR DE HORA: -->
+    <?php
+    if (isset($_GET['horaInc'])){
+    ?>
+        <script>
+        Swal.fire({
+        icon: 'error',
+        title: 'Hora incorrecta!',
+        text: 'La hora que has introducido no es válida, prueba otra vez.'})
+        </script>
+    <?php
+    }
+    ?>
 <script src="../js/validateOnline.js"></script>
+<!-- AJAX DE MESAS -->
+<script src="../js/ajaxMesas.js"></script>
 </html>

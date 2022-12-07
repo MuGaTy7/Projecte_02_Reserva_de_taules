@@ -670,7 +670,7 @@ canvas {
     display: flex;
     align-items: center;
     flex-direction: column;
-    gap: 30px;
+    gap: 20px;
 } 
 
 .form-online h3 {
@@ -755,5 +755,18 @@ canvas {
 .ocupado{
     background-color: rgb(255, 126, 126);
     border: solid 2px red;
+}
+
+.campos-errores{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.campos-errores p{
+    color: #dc3545;
+    font-size: 12px;
+    margin-bottom: 0px;
 }
 

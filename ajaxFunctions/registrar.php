@@ -82,8 +82,14 @@ if ($_POST['tipo'] == 'mesas'){
     $query->execute();
     $userRep = $query->fetchAll(PDO::FETCH_ASSOC);
 
+    // COMPROBAR DNI:
+    $letter = substr($dni, -1);
+    $numbers = substr($dni, 0, -1);
+
     if (empty($nombre) || empty($apellidos) || empty($dni) || empty($username)) {
         echo "camposVacios";
+    } else if (!(substr("TRWAGMYFPDXBNJZSQVHLCKE", $numbers%23, 1) == $letter && strlen($letter) == 1 && strlen ($numbers) == 8)) {
+        echo "errorDni";
     } else {
         if (count($userRep) != 0) {
             echo "userRep";
@@ -120,25 +126,45 @@ if ($_POST['tipo'] == 'mesas'){
     // Password por defecto cada vez que se cree un usuario nuevo: 1234
     $password = '7110eda4d09e062aa5e4a390b0a572ac0d2c0220';
 
-    if (empty($_POST['idp'])){
-        $query = $pdo->prepare("INSERT INTO tbl_man (`id_man`, `nombre_man`, `dni`, `username`, `password`) VALUES (null, :nom, :dni, :user, :pass)");
-        $query->bindParam(":nom", $nombre);
-        $query->bindParam(":dni", $dni);
-        $query->bindParam(":user", $username);
-        $query->bindParam(":pass", $password);
-        $query->execute();
-        $pdo = null;
-        echo "registrado";
-    } else{
-        $id = $_POST['idp'];
-        $query = $pdo->prepare("UPDATE tbl_man SET nombre_man = :nom, dni = :dni, username = :user WHERE id_man = :id");
-        $query->bindParam(":nom", $nombre);
-        $query->bindParam(":dni", $dni);
-        $query->bindParam(":user", $username);
-        $query->bindParam(":id", $id);
-        $query->execute();
-        $pdo = null;
-        echo "modificado";
+    // Mirar si el usuario que se crea esta ya existe en la BD.
+    $query = $pdo->prepare("SELECT * FROM tbl_man WHERE username = :username;");
+    $query->bindParam(":username", $username);
+    $query->execute();
+    $manRep = $query->fetchAll(PDO::FETCH_ASSOC);
+
+    // COMPROBAR DNI:
+    $letter = substr($dni, -1);
+    $numbers = substr($dni, 0, -1);
+
+    if (empty($nombre) || empty($dni) || empty($username)) {
+        echo "camposVacios";
+    } else if (!(substr("TRWAGMYFPDXBNJZSQVHLCKE", $numbers%23, 1) == $letter && strlen($letter) == 1 && strlen ($numbers) == 8)) {
+        echo "errorDni";
+    } else {
+        if (count($manRep) != 0) {
+            echo "userRep";
+        } else {
+            if (empty($_POST['idp'])){
+                $query = $pdo->prepare("INSERT INTO tbl_man (`id_man`, `nombre_man`, `dni`, `username`, `password`) VALUES (null, :nom, :dni, :user, :pass)");
+                $query->bindParam(":nom", $nombre);
+                $query->bindParam(":dni", $dni);
+                $query->bindParam(":user", $username);
+                $query->bindParam(":pass", $password);
+                $query->execute();
+                $pdo = null;
+                echo "registrado";
+            } else{
+                $id = $_POST['idp'];
+                $query = $pdo->prepare("UPDATE tbl_man SET nombre_man = :nom, dni = :dni, username = :user WHERE id_man = :id");
+                $query->bindParam(":nom", $nombre);
+                $query->bindParam(":dni", $dni);
+                $query->bindParam(":user", $username);
+                $query->bindParam(":id", $id);
+                $query->execute();
+                $pdo = null;
+                echo "modificado";
+            }
+        }
     }
 }
 

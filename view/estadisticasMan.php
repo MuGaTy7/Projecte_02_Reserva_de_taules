@@ -91,6 +91,7 @@
             </div>
         </div>
     </div>
-
+    <!-- AJAX DE MESAS -->
+    <script src="../js/ajaxMesas.js"></script>
 </body>
 </html>

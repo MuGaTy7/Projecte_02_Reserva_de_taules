@@ -242,5 +242,6 @@
 <!-- Script hamburguesa navbar -->
 <script src="../js/abrirNavbar.js"></script>
 <script src="../js/functions.js"></script>
-
+<!-- AJAX DE MESAS -->
+<script src="../js/ajaxMesas.js"></script>
 </html>

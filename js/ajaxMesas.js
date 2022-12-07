@@ -28,7 +28,7 @@ btn_privada_2.addEventListener("click", () => {
 function Mesas(sala){
     cont += 1;
     if (cont == 1){
-        interval = setInterval(Mesas, 3000, sala);
+        interval = setInterval(Mesas, 1000, sala);
     }
     var resultado_mesas = document.getElementById('widget_resultado');
     var formdata = new FormData();

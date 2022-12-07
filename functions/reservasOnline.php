@@ -13,9 +13,13 @@ $dia = $_POST['dia'];
 $hora1 = $_POST['hora'].':00';
 $fecha1 = $dia." ".$hora1;
 
-
 if ($dia < date('Y-m-d')) {
     echo "<script>location.href = '../view/reservarOnline.php?fechaInc=true';</script>";
+} else if ($hora1 > '23:00'){
+    echo "<script>location.href = '../view/reservarOnline.php?horaInc=true';</script>";
+    // CAMBIARLO CUANDO LO VAYA A SUBIR, ASI PARA HACER PRUEBAS XD
+} else if ($hora1 < '10:00'){
+    echo "<script>location.href = '../view/reservarOnline.php?horaInc=true';</script>";
 } else {
     try {
         $pdo->beginTransaction();

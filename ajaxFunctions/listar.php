@@ -34,6 +34,17 @@ if ($_POST['tipo'] == 'mesas'){
         $consulta = $pdo->prepare("SELECT * FROM tbl_man");
         $consulta->execute();
     }
+} else if ($_POST['tipo'] == 'reservas') {
+    if(!empty($_POST['valor_mesa']) || !empty($_POST['valor_nombre']) || !empty($_POST['valor_dia'])){
+        $valor_mesa = $_POST['valor_mesa'];
+        $valor_nombre = $_POST['valor_nombre'];
+        $valor_dia = $_POST['valor_dia'];
+        $consulta = $pdo->prepare("SELECT * FROM tbl_reserva WHERE id_mesa LIKE '%".$valor_mesa."%' AND nom_persona LIKE '".$valor_nombre."%' AND SUBSTRING_INDEX(hora_inici, ' ', 1) LIKE '%".$valor_dia."%' AND tipo_reserva = 'online';");
+        $consulta->execute();
+    }else{
+        $consulta = $pdo->prepare("SELECT * FROM tbl_reserva WHERE tipo_reserva = 'online';");
+        $consulta->execute();
+    }
 }
 
 $resultado = $consulta->fetchAll(PDO::FETCH_ASSOC);
