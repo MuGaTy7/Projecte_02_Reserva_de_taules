@@ -43,7 +43,7 @@ $contenido_mesas = [
     "mesas" => "<div class='buscador-table'>
     <form action='' method='post' id='frmbusqueda'>
         <div class='form-group'>
-            <label for='buscra'>FILTROS:</label>
+            <label for='buscra'>FILTROS MESAS:</label>
             <div class='div-filtros'>
                 <input type='text' name='buscar_id' id='buscar_id' placeholder='ID Mesa' class='form-control'>
                 <input type='text' name='buscar_ubi' id='buscar_ubi' placeholder='Ubicación' class='form-control'>

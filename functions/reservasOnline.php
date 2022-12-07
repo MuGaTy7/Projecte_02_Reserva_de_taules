@@ -25,7 +25,7 @@ if ($dia < date('Y-m-d')) {
         $pdo->beginTransaction();
 
         // 1r SQL: Primero hay que comprobar que haya una mesa disponible con esos datos que quiere el usuario:
-        $query = $pdo->prepare("SELECT id_mesa, ubicacion, capacidad, disponibilidad FROM tbl_mesa WHERE disponibilidad != 'Averiado' AND ubicacion = '".$ubicacion."' AND capacidad = '".$personas."' AND id_mesa NOT IN ( SELECT id_mesa FROM tbl_reserva WHERE hora_inici BETWEEN STR_TO_DATE('$fecha1', '%Y-%m-%d %T') AND ADDTIME(STR_TO_DATE('$fecha1', '%Y-%m-%d %T'), '01:00:00') AND hora_fi IS NULL ) LIMIT 1;");
+        $query = $pdo->prepare("SELECT id_mesa, ubicacion, capacidad, disponibilidad FROM tbl_mesa WHERE disponibilidad != 'Averiado' AND ubicacion = '".$ubicacion."' AND capacidad = '".$personas."' AND id_mesa NOT IN ( SELECT id_mesa FROM tbl_reserva WHERE hora_inici BETWEEN DATE_ADD(STR_TO_DATE('$fecha1', '%Y-%m-%d %T'), INTERVAL -1 HOUR) AND ADDTIME(STR_TO_DATE('$fecha1', '%Y-%m-%d %T'), '01:00:00') AND hora_fi IS NULL ) LIMIT 1;");
         $query->execute();
         $resultado = $query->fetchAll(PDO::FETCH_ASSOC);
 

@@ -36,7 +36,7 @@ $contenido_camareros = [
     "camareros" => "<div class='buscador-table'>
     <form action='' method='post' id='frmbusqueda'>
         <div class='form-group'>
-            <label for='buscra'>FILTROS:</label>
+            <label for='buscra'>FILTROS CAMAREROS:</label>
             <div class='div-filtros'>
                 <input type='text' name='buscar_id' id='buscar_id' placeholder='ID Camarero' class='form-control'>
                 <input type='text' name='buscar_dni' id='buscar_dni' placeholder='DNI' class='form-control'>

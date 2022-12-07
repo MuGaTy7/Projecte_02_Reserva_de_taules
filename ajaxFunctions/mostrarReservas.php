@@ -5,7 +5,7 @@ $contenido_reservas = [
     "reservas" => "<div class='buscador-table'>
     <form action='' method='post' id='frmbusqueda'>
         <div class='form-group'>
-            <label for='buscra'>FILTROS:</label>
+            <label for='buscra'>FILTROS RESERVAS:</label>
             <div class='div-filtros'>
                 <input type='text' name='buscar_mesa' id='buscar_mesa' placeholder='ID Mesa' class='form-control'>
                 <input type='text' name='buscar_nombre' id='buscar_nombre' placeholder='Nombre' class='form-control'>
