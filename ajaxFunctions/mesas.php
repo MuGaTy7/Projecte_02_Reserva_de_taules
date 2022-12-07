@@ -8,7 +8,7 @@ try {
     $pdo->beginTransaction();
 
     // 1r SQL: Identificar aquellas mesas que tienen una reserva en la hora actual:
-    $query = $pdo->prepare("SELECT * FROM tbl_reserva WHERE hora_inici BETWEEN CURRENT_TIMESTAMP() AND ADDTIME(CURRENT_TIMESTAMP, '00:00:30');");
+    $query = $pdo->prepare("SELECT * FROM tbl_reserva WHERE hora_inici BETWEEN CURRENT_TIMESTAMP() AND ADDTIME(CURRENT_TIMESTAMP, '00:00:03');");
     $query->execute();
     $resultado = $query->fetchAll(PDO::FETCH_ASSOC);
 

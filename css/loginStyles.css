@@ -112,7 +112,7 @@ button {
     text-transform: uppercase;
     overflow: hidden;
     transition: .5s;
-    margin-top: 20px;
+    margin: 10px 0px;
     letter-spacing: 3px
 }
 

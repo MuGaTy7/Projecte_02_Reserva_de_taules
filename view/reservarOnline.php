@@ -40,15 +40,28 @@
                 <input type="text" name="telefono" id="telefono" class="form-control" placeholder="Escriba su número de teléfono...">
             </div>
             <div class="div-online">
-                <input type="number" name="personas" id="personas" class="form-control" placeholder="Número de comensales">
-                <input type="text" name="ubicacion" id="ubicacion" class="form-control" placeholder="¿Donde quieren comer?">
+                <!-- <input type="number" name="personas" id="personas" class="form-control" placeholder="Número de comensales"> -->
+                <select name="personas" id="personas" class="form-control" placeholder="Número de comensales">
+                    <option value="2">2</option>
+                    <option value="4">4</option>
+                    <option value="6">6</option>
+                    <option value="10">10</option>
+                    <option value="12">12</option>
+                </select>
+                <!-- <input type="text" name="ubicacion" id="ubicacion" class="form-control" placeholder="¿Donde quieren comer?"> -->
+                <select name="ubicacion" id="ubicacion" class="form-control" placeholder="¿Donde quieren comer?">
+                    <option value="salon">Salón</option>
+                    <option value="terraza">Terraza</option>
+                    <option value="sala_privada1">Sala privada 1</option>
+                    <option value="sala_privada2">Sala privada 2</option>
+                </select>
             </div>
             <div class="div-online">
-                <input type="date" name="dia" id="dia" class="form-control">
+                <input type="date" min="<?php echo date('Y-m-d') ?>" name="dia" id="dia" class="form-control">
                 <input type="time" name="hora" id="hora" class="form-control">
             </div>
             <div class="div-online">
-                <input type="submit" class="btn btn-danger" value="Reservar">
+                <input type="submit" id="registrar" class="btn btn-danger" onclick="return validarOnline()" value="Reservar">
             </div>
         </form>
     </div>
@@ -80,5 +93,5 @@
     }
     ?>
 
-<script src="../js/loginAnimation.js"></script>
+<script src="../js/validateOnline.js"></script>
 </html>

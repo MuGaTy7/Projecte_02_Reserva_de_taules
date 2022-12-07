@@ -34,9 +34,13 @@
                     <label>Contraseña</label>
                 </div>
                 <small></small>
-                <br>
                 <button type="submit">Entrar</button>
                 <br>
+                <div style="display: flex; align-items: center; flex-direction: column; width: 100%;">
+                    <p style="color: white;">Para hacer tu reserva haz click en este enlace.</p>
+                    <button style="left: 0%; width: 50%;"><a style="text-decoration: none; color: inherit;" href="./view/reservarOnline.php">RESERVAR</a></button>
+                </div>
+                
             </form>
         </div>
     </div>

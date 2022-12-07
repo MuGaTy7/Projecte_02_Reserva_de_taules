@@ -9,11 +9,22 @@ $contenido_mesas = [
         <div class='form-group'>
             <label for=''>Ubicación</label>
             <input type='hidden' name='idp' id='idp' value=''>
-            <input type='text' name='ubi' id='ubi' placeholder='Ubicación' class='form-control'>
+            <select name='ubi' id='ubi' class='form-control' placeholder='¿Donde quieren comer?'>
+                    <option value='salon'>Salón</option>
+                    <option value='terraza'>Terraza</option>
+                    <option value='sala_privada1'>Sala privada 1</option>
+                    <option value='sala_privada2'>Sala privada 2</option>
+                </select>
         </div>
         <div class='form-group'>
             <label for=''>Capacidad</label>
-            <input type='text' name='capa' id='capa' placeholder='Capacidad' class='form-control'>
+            <select name='capa' id='capa' class='form-control' placeholder='Número de comensales'>
+                    <option value='2'>2</option>
+                    <option value='4'>4</option>
+                    <option value='6'>6</option>
+                    <option value='10'>10</option>
+                    <option value='12'>12</option>
+                </select>
         </div>
         <div class='form-group'>
             <label for=''>Fotografía</label>

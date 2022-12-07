@@ -270,6 +270,13 @@ function RegistrarMesas(){
                     idp.value = "";
                     form.reset();
                     listarMesas('','','');
+                } else if (ajax.responseText == 'camposVacios'){
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Campo vacío!',
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
                 }
             } else {
                 respuesta_ajax.innerText = 'Error';
@@ -307,6 +314,20 @@ function RegistrarCam(){
                     idp.value = "";
                     form.reset();
                     listarCam('','','');
+                } else if (ajax.responseText == 'camposVacios'){
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Campo vacío!',
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                } else if (ajax.responseText == 'userRep'){
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Usuario repetido!',
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
                 }
             } else {
                 respuesta_ajax.innerText = 'Error';
